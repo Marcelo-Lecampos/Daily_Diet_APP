@@ -50,7 +50,7 @@ export const DashBoard = ({ data, icon }: DashBoardHomeProps) => {
   return (
     <div>
       <DashboardContainer BackgroundColor={isPercentageTrue}>
-        <DashboardIcon onPress={handleNavigateToStatistics}>
+        <DashboardIcon icon={icon} onPress={handleNavigateToStatistics}>
           {icon === "LEFT" ? <ArrowLeftIcon /> : <ArrowUpRightIcon />}
         </DashboardIcon>
 

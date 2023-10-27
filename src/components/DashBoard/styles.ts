@@ -4,6 +4,11 @@ type DashboardContainerProps = {
   BackgroundColor: boolean;
 }
 
+type DashboardIconProps = {
+  icon: "LEFT" | "UP_RIGHT";
+}
+
+
 export const DashboardContainer = styled.View<DashboardContainerProps>`
   width: 327px;
   height: 102px;
@@ -30,9 +35,9 @@ export const DashboardTitle = styled.Text`
   margin-bottom: 1rem;
 `;
 
-export const DashboardIcon = styled.TouchableOpacity`
+export const DashboardIcon = styled.TouchableOpacity<DashboardIconProps>`
   color: ${({ theme }) => theme.COLORS.GREEN_DARK};
   font-weight: bold;
-  align-self: flex-end;
-  margin-right: 1rem;
+  align-self: ${({ icon }) =>  icon === "LEFT" ? "flex-start" : "flex-end"};
+  ${({ icon }) =>  icon === "LEFT" ? "margin-left: 1rem;" : "margin-right: 1rem;"}
 `;
