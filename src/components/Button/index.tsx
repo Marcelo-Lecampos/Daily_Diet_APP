@@ -1,4 +1,3 @@
-import { PencilSimpleLineIcon, TrashIcon } from "@components/Icons";
 import {
   PrimaryColoredButton,
   SecondaryButton,
@@ -9,12 +8,14 @@ import {
 } from "./styles";
 import { useState } from "react";
 import { ButtonProps } from "./utils/types/ButtonTypes";
+import { getIcon } from "./utils/functions/iconFunctions";
 
-// type ButtonProps = {
-
-// };
-
-export const Button = ({ title, buttonWidthType, variant }: ButtonProps) => {
+export const Button = ({
+  title,
+  buttonWidthType,
+  variant,
+  icon,
+}: ButtonProps) => {
   const [selected, setSelected] = useState(true);
 
   const handleSelectButtonPress = () => {
@@ -28,7 +29,7 @@ export const Button = ({ title, buttonWidthType, variant }: ButtonProps) => {
           widthType={buttonWidthType}
           onPress={handleSelectButtonPress}
         >
-          <PencilSimpleLineIcon iconSize={18} />
+          {icon ? getIcon(icon) : null}
           <ButtonTitlePrimary>{title}</ButtonTitlePrimary>
         </PrimaryColoredButton>
       </>
@@ -42,7 +43,7 @@ export const Button = ({ title, buttonWidthType, variant }: ButtonProps) => {
           widthType={buttonWidthType}
           onPress={handleSelectButtonPress}
         >
-          <PencilSimpleLineIcon iconSize={18} />
+          {icon ? getIcon(icon) : null}
           <ButtonTitlePrimary>{title}</ButtonTitlePrimary>
         </PrimaryButton>
       </>
@@ -56,7 +57,7 @@ export const Button = ({ title, buttonWidthType, variant }: ButtonProps) => {
           widthType={buttonWidthType}
           onPress={handleSelectButtonPress}
         >
-          <TrashIcon iconSize={18} />
+          {icon ? getIcon(icon) : null}
           <ButtonTitleSecondary>{title}</ButtonTitleSecondary>
         </SecondaryColoredButton>
       </>
@@ -70,7 +71,7 @@ export const Button = ({ title, buttonWidthType, variant }: ButtonProps) => {
           widthType={buttonWidthType}
           onPress={handleSelectButtonPress}
         >
-          <TrashIcon iconSize={18} />
+          {icon ? getIcon(icon) : null}
           <ButtonTitleSecondary>{title}</ButtonTitleSecondary>
         </SecondaryButton>
       </>

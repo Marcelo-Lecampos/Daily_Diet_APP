@@ -1,25 +1,17 @@
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 
-// crie um header container
+type DashboardContainerProps = {
+  BackgroundColor: boolean;
+}
 
-export const HeaderContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-`;
-
-
-export const DashboardContainer = styled.View`
+export const DashboardContainer = styled.View<DashboardContainerProps>`
   width: 327px;
   height: 102px;
   border-radius: 10px;
 
-
-
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme, BackgroundColor }) => BackgroundColor ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `;
 
 export const DashboardNumber = styled.Text`
@@ -38,13 +30,9 @@ export const DashboardTitle = styled.Text`
   margin-bottom: 1rem;
 `;
 
-// button no react native é o touchable opacity
-
 export const DashboardIcon = styled.TouchableOpacity`
-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
-font-weight: bold;
-align-self: flex-end;
-margin-right: 1rem;
-
-  
-`
+  color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+  font-weight: bold;
+  align-self: flex-end;
+  margin-right: 1rem;
+`;
